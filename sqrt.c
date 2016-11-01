@@ -2,6 +2,7 @@ float sqrt(float f){
     float ans;
     if(SIGN(f) == 1){
         return NAN;
+
     }
     SIGN(ans) = 0;
     E(ans) = (E(f)-127)/2+127;
