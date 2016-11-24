@@ -4,4 +4,4 @@ all:
 	gcc -o assembler3 assembler3.c
 
 test:
-	./assembler2 test | ./assembler2 | ./assembler3 > test
+	./assembler2 test | ./assembler | ./assembler3 > test
