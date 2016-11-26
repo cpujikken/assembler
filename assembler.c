@@ -341,7 +341,8 @@ int execute(char *s) {
     //31 : LDR Rd off16(Rs)
     print_bin(31,6);
     read_reg(opr1);
-    read_base_rel(opr2);
+    read_reg(opr2);
+    print_bin(atoi(opr3),16);
   }
   else if(strcmp(opc,"ldd") * strcmp(opc,"LDD") == 0){
     //32 : LDD Rd, Ro, size4, Rs
