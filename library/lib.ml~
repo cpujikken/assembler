@@ -76,4 +76,4 @@ let rec sin t =
 
 let rec sqrt x = 
 	let rec f y = y-.((y*.y-.x)/.(2.0*.y)) in
-	let rec g z = if ((f z)-.z)>=0.0000001 then g (f z) else if ((f z)-.z)>(-.0.0000001) then f z else g (f z) in g x in sqrt 2.0
+	let rec g z = if ((f z)-.z)>=0.0000001 then g (f z) else if ((f z)-.z)>(-.0.0000001) then f z else g (f z) in g x
