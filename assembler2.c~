@@ -165,7 +165,7 @@ int main(int argc,char *argv[]){
         }
     }
     datasize = 0;
-    memory = 8;
+    memory = 4;
     while(fgets(s,100,rd) != NULL){
 	if(state == 0){
  		char ss[100];

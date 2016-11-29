@@ -175,12 +175,20 @@ int main(int argc,char *argv[]){
 		    int align = atoi(sss);
 		    memory = (memory+align-1)/align*align;
 		}
+		else if(strcmp(ss,".space") == 0){
+		    memory += atoi(sss);
+		}
 		else if(strcmp(ss,".text") == 0){
 		    state = 1;
 		}
 	}
-        else if(state == 1 && read_data(s) == 0){
-            memory += 4;
+        else if(state == 1){
+		if(strcmp(s,".data") == 0){
+			state = 0;
+		}
+		else if(read_data(s) == 0){
+        		memory += 4;
+		}
         }
     }
     state = 0;
@@ -199,8 +207,13 @@ int main(int argc,char *argv[]){
 		    state = 1;
 		}
 	}
-        else if(state == 1 && has_data(s) == 0){
-            write_line(s);
+        else if(state == 1){
+		if(strcmp(s,".data") == 0){
+			state = 0;
+		}
+		else if(has_data(s) == 0){
+           		write_line(s);
+		}
         }
     }
     fclose(rd);
