@@ -1,0 +1,1440 @@
+cat 01000000101011111110110111011111
+cat 01000000100101101100101111100100
+cat 01000000011110110101001111010001
+cat 01000000010010010000111111011011
+cat 01000000000101101100101111100100
+cat 00111111110010010000111111011011
+cat 01000001000000000000000000000000
+cat 01000000110010010000111111011011
+cat 01000001110000000000000000000000
+cat 01000100001101000000000000000000
+cat 01000111000111011000000000000000
+cat 01000000110000000000000000000000
+cat 01000101100111011000000000000000
+cat 01000010111100000000000000000000
+cat 00111111010010010000111111011011
+cat 00111111110010010000111111011011
+cat 0111111111111111111111111111111110110011110101101011111110010101
+cat 00110011110101101011111110010101
+cat 00111111100000000000000000000000
+cat 0000
+cat 01000000000000000000000000000000
+	MVI	0, 32	
+	PRINT	0	
+	LINK	
+	MVI	0, 10	
+	PRINT	0	
+	LINK	
+	MVI	1, 1	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	ADDI	30, 30, 8	
+	JLINK	print_loop.504	
+	ADDI	30, 30, -8	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	SDR	0, 30, 8	
+	ADDI	30, 30, 12	
+	JLINK	z.499	
+	ADDI	30, 30, -12	
+	LDR	0, 30, 8	
+	LINK	
+	SDR	10, 30, 0	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	MV	0, 1	
+	ADDI	30, 30, 12	
+	JLINK	four.495	
+	ADDI	30, 30, -12	
+	MV	10, 0	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	SDR	1, 30, 12	
+	SDR	0, 30, 16	
+	MV	0, 10	
+	ADDI	30, 30, 20	
+	JLINK	four.495	
+	ADDI	30, 30, -20	
+	MV	10, 0	
+	LDR	1, 30, 12	
+	LDR	0, 30, 16	
+	SDR	1, 30, 20	
+	SDR	0, 30, 24	
+	MV	0, 10	
+	ADDI	30, 30, 28	
+	JLINK	half.497	
+	ADDI	30, 30, -28	
+	MV	10, 0	
+	LDR	1, 30, 20	
+	LDR	0, 30, 24	
+	ADD	10, 10, 1	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	476	
+	SDR	1, 30, 28	
+	SDR	0, 30, 32	
+	MV	0, 1	
+	ADDI	30, 30, 36	
+	JLINK	four.495	
+	ADDI	30, 30, -36	
+	MV	10, 0	
+	LDR	1, 30, 28	
+	LDR	0, 30, 32	
+	SDR	1, 30, 36	
+	SDR	0, 30, 40	
+	MV	0, 10	
+	ADDI	30, 30, 44	
+	JLINK	four.495	
+	ADDI	30, 30, -44	
+	MV	10, 0	
+	LDR	1, 30, 36	
+	LDR	0, 30, 40	
+	SDR	1, 30, 44	
+	SDR	0, 30, 48	
+	MV	0, 10	
+	ADDI	30, 30, 52	
+	JLINK	half.497	
+	ADDI	30, 30, -52	
+	MV	10, 0	
+	LDR	1, 30, 44	
+	LDR	0, 30, 48	
+	ADD	10, 10, 1	
+	ADD	10, 10, 1	
+	SDR	1, 30, 52	
+	SDR	0, 30, 56	
+	MV	1, 10	
+	ADDI	30, 30, 60	
+	JLINK	print_loop.504	
+	ADDI	30, 30, -60	
+	LDR	1, 30, 52	
+	LDR	0, 30, 56	
+	SDR	1, 30, 60	
+	SDR	0, 30, 64	
+	LDR	1, 30, 60	
+	LDR	0, 30, 64	
+	ADDI	30, 30, 68	
+	JLINK	print_int_sub.501	
+	ADDI	30, 30, -68	
+	J	504	
+	SDR	1, 30, 68	
+	SDR	0, 30, 72	
+	LDR	1, 30, 68	
+	LDR	0, 30, 72	
+	ADDI	30, 30, 76	
+	JLINK	print_int_sub.501	
+	ADDI	30, 30, -76	
+	LDR	10, 30, 0	
+	LINK	
+	SDR	10, 30, 0	
+	CMP	1, 0	
+	JZ	1456	
+	ADD	10, 1, 1	
+	CMP	10, 0	
+	JZ	1448	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	1436	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	MV	0, 1	
+	ADDI	30, 30, 12	
+	JLINK	four.495	
+	ADDI	30, 30, -12	
+	MV	10, 0	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	CMP	10, 0	
+	JZ	1420	
+	SDR	1, 30, 12	
+	SDR	0, 30, 16	
+	MV	0, 1	
+	ADDI	30, 30, 20	
+	JLINK	four.495	
+	ADDI	30, 30, -20	
+	MV	10, 0	
+	LDR	1, 30, 12	
+	LDR	0, 30, 16	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	1376	
+	SDR	1, 30, 20	
+	SDR	0, 30, 24	
+	MV	0, 1	
+	ADDI	30, 30, 28	
+	JLINK	four.495	
+	ADDI	30, 30, -28	
+	MV	10, 0	
+	LDR	1, 30, 20	
+	LDR	0, 30, 24	
+	ADD	10, 10, 1	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	1328	
+	SDR	1, 30, 28	
+	SDR	0, 30, 32	
+	MV	0, 1	
+	ADDI	30, 30, 36	
+	JLINK	four.495	
+	ADDI	30, 30, -36	
+	MV	10, 0	
+	LDR	1, 30, 28	
+	LDR	0, 30, 32	
+	ADD	10, 10, 1	
+	ADD	10, 10, 1	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	1276	
+	SDR	1, 30, 36	
+	SDR	0, 30, 40	
+	MV	0, 1	
+	ADDI	30, 30, 44	
+	JLINK	four.495	
+	ADDI	30, 30, -44	
+	MV	10, 0	
+	LDR	1, 30, 36	
+	LDR	0, 30, 40	
+	SDR	1, 30, 44	
+	SDR	0, 30, 48	
+	MV	0, 10	
+	ADDI	30, 30, 52	
+	JLINK	four.495	
+	ADDI	30, 30, -52	
+	MV	10, 0	
+	LDR	1, 30, 44	
+	LDR	0, 30, 48	
+	SDR	1, 30, 52	
+	SDR	0, 30, 56	
+	MV	0, 10	
+	ADDI	30, 30, 60	
+	JLINK	half.497	
+	ADDI	30, 30, -60	
+	MV	10, 0	
+	LDR	1, 30, 52	
+	LDR	0, 30, 56	
+	CMP	10, 0	
+	JZ	1220	
+	SDR	1, 30, 60	
+	SDR	0, 30, 64	
+	MV	0, 1	
+	ADDI	30, 30, 68	
+	JLINK	four.495	
+	ADDI	30, 30, -68	
+	MV	10, 0	
+	LDR	1, 30, 60	
+	LDR	0, 30, 64	
+	SDR	1, 30, 68	
+	SDR	0, 30, 72	
+	MV	0, 10	
+	ADDI	30, 30, 76	
+	JLINK	four.495	
+	ADDI	30, 30, -76	
+	MV	10, 0	
+	LDR	1, 30, 68	
+	LDR	0, 30, 72	
+	SDR	1, 30, 76	
+	SDR	0, 30, 80	
+	MV	0, 10	
+	ADDI	30, 30, 84	
+	JLINK	half.497	
+	ADDI	30, 30, -84	
+	MV	10, 0	
+	LDR	1, 30, 76	
+	LDR	0, 30, 80	
+	ADD	10, 10, 1	
+	CMP	10, 0	
+	JZ	1104	
+	SDR	1, 30, 84	
+	SDR	0, 30, 88	
+	MV	0, 1	
+	ADDI	30, 30, 92	
+	JLINK	four.495	
+	ADDI	30, 30, -92	
+	MV	10, 0	
+	LDR	1, 30, 84	
+	LDR	0, 30, 88	
+	SDR	1, 30, 92	
+	SDR	0, 30, 96	
+	MV	0, 10	
+	ADDI	30, 30, 100	
+	JLINK	four.495	
+	ADDI	30, 30, -100	
+	MV	10, 0	
+	LDR	1, 30, 92	
+	LDR	0, 30, 96	
+	SDR	1, 30, 100	
+	SDR	0, 30, 104	
+	MV	0, 10	
+	ADDI	30, 30, 108	
+	JLINK	half.497	
+	ADDI	30, 30, -108	
+	MV	10, 0	
+	LDR	1, 30, 100	
+	LDR	0, 30, 104	
+	SUB	0, 0, 10	
+	SUB	0, 0, 1	
+	J	1216	
+	SDR	1, 30, 108	
+	SDR	0, 30, 112	
+	MV	0, 1	
+	ADDI	30, 30, 116	
+	JLINK	four.495	
+	ADDI	30, 30, -116	
+	MV	1, 0	
+	LDR	1, 30, 108	
+	LDR	0, 30, 112	
+	SDR	1, 30, 116	
+	SDR	0, 30, 120	
+	MV	0, 1	
+	ADDI	30, 30, 124	
+	JLINK	four.495	
+	ADDI	30, 30, -124	
+	MV	1, 0	
+	LDR	1, 30, 116	
+	LDR	0, 30, 120	
+	SDR	1, 30, 124	
+	SDR	0, 30, 128	
+	MV	0, 1	
+	ADDI	30, 30, 132	
+	JLINK	half.497	
+	ADDI	30, 30, -132	
+	MV	1, 0	
+	LDR	1, 30, 124	
+	LDR	0, 30, 128	
+	SUB	0, 0, 1	
+	J	1272	
+	SDR	1, 30, 132	
+	SDR	0, 30, 136	
+	MV	0, 1	
+	ADDI	30, 30, 140	
+	JLINK	four.495	
+	ADDI	30, 30, -140	
+	MV	10, 0	
+	LDR	1, 30, 132	
+	LDR	0, 30, 136	
+	SUB	0, 0, 10	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	J	1324	
+	SDR	1, 30, 140	
+	SDR	0, 30, 144	
+	MV	0, 1	
+	ADDI	30, 30, 148	
+	JLINK	four.495	
+	ADDI	30, 30, -148	
+	MV	10, 0	
+	LDR	1, 30, 140	
+	LDR	0, 30, 144	
+	SUB	0, 0, 10	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	J	1372	
+	SDR	1, 30, 148	
+	SDR	0, 30, 152	
+	MV	0, 1	
+	ADDI	30, 30, 156	
+	JLINK	four.495	
+	ADDI	30, 30, -156	
+	MV	10, 0	
+	LDR	1, 30, 148	
+	LDR	0, 30, 152	
+	SUB	0, 0, 10	
+	SUB	0, 0, 1	
+	J	1416	
+	SDR	1, 30, 156	
+	SDR	0, 30, 160	
+	MV	0, 1	
+	ADDI	30, 30, 164	
+	JLINK	four.495	
+	ADDI	30, 30, -164	
+	MV	1, 0	
+	LDR	1, 30, 156	
+	LDR	0, 30, 160	
+	SUB	0, 0, 1	
+	J	1432	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	J	1444	
+	SUB	0, 0, 1	
+	SUB	0, 0, 1	
+	J	1452	
+	SUB	0, 0, 1	
+	J	1460	
+	LDA	0, min_caml_n.502	
+	LDR	10, 30, 0	
+	LINK	
+	LINK	
+	MVI	1, 2	
+	DIV	0, 0, 1	
+	LINK	
+	MVI	1, 4	
+	MUL	0, 0, 1	
+	LINK	
+	FLDA	1, 32	
+	FDIV	1, 0, 1	
+	SDR	0, 30, 0	
+	FSDR	1, 30, 4	
+	FSDR	0, 30, 8	
+	FMV	0, 1	
+	ADDI	30, 30, 12	
+	JLINK	floor.466	
+	ADDI	30, 30, -12	
+	LDR	0, 30, 0	
+	FLDR	1, 30, 4	
+	FLDR	0, 30, 8	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	ADDI	30, 30, 24	
+	JLINK	itof.460	
+	ADDI	30, 30, -24	
+	FMV	1, 0	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FLDA	10, 60	
+	FMUL	10, 1, 10	
+	FLDA	1, 28	
+	FMUL	1, 10, 1	
+	FSUB	0, 0, 1	
+	FLDA	1, 60	
+	FCMP	1, 0	
+	FJLT	1984	
+	FLDA	1, 24	
+	FCMP	1, 0	
+	FJLT	1944	
+	FLDA	1, 20	
+	FCMP	1, 0	
+	FJLT	1904	
+	FLDA	1, 16	
+	FCMP	1, 0	
+	FJLT	1864	
+	FLDA	1, 12	
+	FCMP	1, 0	
+	FJLT	1820	
+	FLDA	1, 8	
+	FCMP	1, 0	
+	FJLT	1776	
+	FLDA	1, 4	
+	FCMP	1, 0	
+	FJLT	1732	
+	FLDA	1, 32	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 24	
+	FSDR	0, 30, 28	
+	ADDI	30, 30, 32	
+	JLINK	sinsub.585	
+	ADDI	30, 30, -32	
+	FLDR	1, 30, 24	
+	FLDR	0, 30, 28	
+	FNEG1	0	
+	J	1772	
+	FLDA	1, 8	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 32	
+	FSDR	0, 30, 36	
+	ADDI	30, 30, 40	
+	JLINK	cossub.587	
+	ADDI	30, 30, -40	
+	FLDR	1, 30, 32	
+	FLDR	0, 30, 36	
+	FNEG1	0	
+	J	1816	
+	FLDA	1, 8	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 40	
+	FSDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINK	cossub.587	
+	ADDI	30, 30, -48	
+	FLDR	1, 30, 40	
+	FLDR	0, 30, 44	
+	FNEG1	0	
+	J	1860	
+	FLDA	1, 16	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 48	
+	FSDR	0, 30, 52	
+	ADDI	30, 30, 56	
+	JLINK	sinsub.585	
+	ADDI	30, 30, -56	
+	FLDR	1, 30, 48	
+	FLDR	0, 30, 52	
+	FNEG1	0	
+	J	1900	
+	FLDA	1, 16	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 56	
+	FSDR	0, 30, 60	
+	FLDR	1, 30, 56	
+	FLDR	0, 30, 60	
+	ADDI	30, 30, 64	
+	JLINK	sinsub.585	
+	ADDI	30, 30, -64	
+	J	1940	
+	FLDA	1, 24	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 64	
+	FSDR	0, 30, 68	
+	FLDR	1, 30, 64	
+	FLDR	0, 30, 68	
+	ADDI	30, 30, 72	
+	JLINK	cossub.587	
+	ADDI	30, 30, -72	
+	J	1980	
+	FLDA	1, 24	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 72	
+	FSDR	0, 30, 76	
+	FLDR	1, 30, 72	
+	FLDR	0, 30, 76	
+	ADDI	30, 30, 80	
+	JLINK	cossub.587	
+	ADDI	30, 30, -80	
+	J	2012	
+	FSDR	1, 30, 80	
+	FSDR	0, 30, 84	
+	FLDR	1, 30, 80	
+	FLDR	0, 30, 84	
+	ADDI	30, 30, 88	
+	JLINK	sinsub.585	
+	ADDI	30, 30, -88	
+	LINK	
+	FMUL	12, 0, 0	
+	FMUL	1, 12, 0	
+	FMUL	11, 1, 0	
+	FMUL	1, 11, 0	
+	FMUL	10, 1, 0	
+	FLDA	0, 44	
+	FDIV	1, 10, 0	
+	FLDA	0, 40	
+	FDIV	0, 10, 0	
+	FSUB	1, 1, 0	
+	FLDA	0, 36	
+	FDIV	0, 11, 0	
+	FADD	1, 1, 0	
+	FLDA	0, 84	
+	FDIV	0, 12, 0	
+	FSUB	1, 1, 0	
+	FLDA	0, 76	
+	FADD	0, 1, 0	
+	LINK	
+	FMUL	1, 0, 0	
+	FMUL	12, 1, 0	
+	FMUL	1, 12, 0	
+	FMUL	1, 1, 0	
+	FLDA	10, 56	
+	FDIV	11, 1, 10	
+	FMUL	1, 1, 0	
+	FMUL	10, 1, 0	
+	FLDA	1, 52	
+	FDIV	1, 10, 1	
+	FSUB	10, 11, 1	
+	FLDA	1, 48	
+	FDIV	1, 12, 1	
+	FSUB	1, 10, 1	
+	FADD	0, 1, 0	
+	LINK	
+	FLDA	1, 32	
+	FDIV	1, 0, 1	
+	SDR	0, 30, 0	
+	FSDR	1, 30, 4	
+	FSDR	0, 30, 8	
+	FMV	0, 1	
+	ADDI	30, 30, 12	
+	JLINK	floor.466	
+	ADDI	30, 30, -12	
+	LDR	0, 30, 0	
+	FLDR	1, 30, 4	
+	FLDR	0, 30, 8	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	ADDI	30, 30, 24	
+	JLINK	itof.460	
+	ADDI	30, 30, -24	
+	FMV	1, 0	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FLDA	10, 60	
+	FMUL	10, 1, 10	
+	FLDA	1, 28	
+	FMUL	1, 10, 1	
+	FSUB	0, 0, 1	
+	FLDA	1, 60	
+	FCMP	1, 0	
+	FJLT	2644	
+	FLDA	1, 24	
+	FCMP	1, 0	
+	FJLT	2604	
+	FLDA	1, 20	
+	FCMP	1, 0	
+	FJLT	2560	
+	FLDA	1, 16	
+	FCMP	1, 0	
+	FJLT	2516	
+	FLDA	1, 12	
+	FCMP	1, 0	
+	FJLT	2472	
+	FLDA	1, 8	
+	FCMP	1, 0	
+	FJLT	2428	
+	FLDA	1, 4	
+	FCMP	1, 0	
+	FJLT	2388	
+	FLDA	1, 32	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 24	
+	FSDR	0, 30, 28	
+	FLDR	1, 30, 24	
+	FLDR	0, 30, 28	
+	ADDI	30, 30, 32	
+	JLINK	cossub.700	
+	ADDI	30, 30, -32	
+	J	2424	
+	FLDA	1, 8	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 32	
+	FSDR	0, 30, 36	
+	FLDR	1, 30, 32	
+	FLDR	0, 30, 36	
+	ADDI	30, 30, 40	
+	JLINK	sinsub.698	
+	ADDI	30, 30, -40	
+	J	2468	
+	FLDA	1, 8	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 40	
+	FSDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINK	sinsub.698	
+	ADDI	30, 30, -48	
+	FLDR	1, 30, 40	
+	FLDR	0, 30, 44	
+	FNEG1	0	
+	J	2512	
+	FLDA	1, 16	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 48	
+	FSDR	0, 30, 52	
+	ADDI	30, 30, 56	
+	JLINK	cossub.700	
+	ADDI	30, 30, -56	
+	FLDR	1, 30, 48	
+	FLDR	0, 30, 52	
+	FNEG1	0	
+	J	2556	
+	FLDA	1, 16	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 56	
+	FSDR	0, 30, 60	
+	ADDI	30, 30, 64	
+	JLINK	cossub.700	
+	ADDI	30, 30, -64	
+	FLDR	1, 30, 56	
+	FLDR	0, 30, 60	
+	FNEG1	0	
+	J	2600	
+	FLDA	1, 24	
+	FSUB	0, 0, 1	
+	FSDR	1, 30, 64	
+	FSDR	0, 30, 68	
+	ADDI	30, 30, 72	
+	JLINK	sinsub.698	
+	ADDI	30, 30, -72	
+	FLDR	1, 30, 64	
+	FLDR	0, 30, 68	
+	FNEG1	0	
+	J	2640	
+	FLDA	1, 24	
+	FSUB	0, 1, 0	
+	FSDR	1, 30, 72	
+	FSDR	0, 30, 76	
+	FLDR	1, 30, 72	
+	FLDR	0, 30, 76	
+	ADDI	30, 30, 80	
+	JLINK	sinsub.698	
+	ADDI	30, 30, -80	
+	J	2672	
+	FSDR	1, 30, 80	
+	FSDR	0, 30, 84	
+	FLDR	1, 30, 80	
+	FLDR	0, 30, 84	
+	ADDI	30, 30, 88	
+	JLINK	cossub.700	
+	ADDI	30, 30, -88	
+	LINK	
+	FMUL	12, 0, 0	
+	FMUL	1, 12, 0	
+	FMUL	11, 1, 0	
+	FMUL	1, 11, 0	
+	FMUL	10, 1, 0	
+	FLDA	0, 44	
+	FDIV	1, 10, 0	
+	FLDA	0, 40	
+	FDIV	0, 10, 0	
+	FSUB	1, 1, 0	
+	FLDA	0, 36	
+	FDIV	0, 11, 0	
+	FADD	1, 1, 0	
+	FLDA	0, 84	
+	FDIV	0, 12, 0	
+	FSUB	1, 1, 0	
+	FLDA	0, 76	
+	FADD	0, 1, 0	
+	LINK	
+	FMUL	1, 0, 0	
+	FMUL	12, 1, 0	
+	FMUL	1, 12, 0	
+	FMUL	1, 1, 0	
+	FLDA	10, 56	
+	FDIV	11, 1, 10	
+	FMUL	1, 1, 0	
+	FMUL	10, 1, 0	
+	FLDA	1, 52	
+	FDIV	1, 10, 1	
+	FSUB	10, 11, 1	
+	FLDA	1, 48	
+	FDIV	1, 12, 1	
+	FSUB	1, 10, 1	
+	FADD	0, 1, 0	
+	LINK	
+	FLDA	1, 80	
+	FCMP	1, 0	
+	FJLT	3216	
+	FLDA	1, 84	
+	SDR	0, 30, 0	
+	FSDR	1, 30, 4	
+	FSDR	0, 30, 8	
+	FMV	0, 1	
+	ADDI	30, 30, 12	
+	JLINK	sqrt.469	
+	ADDI	30, 30, -12	
+	FMV	10, 0	
+	LDR	0, 30, 0	
+	FLDR	1, 30, 4	
+	FLDR	0, 30, 8	
+	FLDA	1, 76	
+	FSUB	1, 10, 1	
+	FCMP	0, 1	
+	FJLT	3172	
+	FLDA	1, 76	
+	FCMP	0, 1	
+	FJLT	3100	
+	FLDA	1, 84	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	FMV	0, 1	
+	ADDI	30, 30, 24	
+	JLINK	sqrt.469	
+	ADDI	30, 30, -24	
+	FMV	10, 0	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FLDA	1, 76	
+	FADD	1, 10, 1	
+	FCMP	0, 1	
+	FJLT	3028	
+	FLDA	10, 64	
+	FLDA	1, 76	
+	FDIV	0, 1, 0	
+	MVI	0, 100	
+	SDR	0, 30, 24	
+	FSDR	1, 30, 28	
+	FSDR	0, 30, 32	
+	ADDI	30, 30, 36	
+	JLINK	arctansub.813	
+	ADDI	30, 30, -36	
+	LDR	0, 30, 24	
+	FLDR	1, 30, 28	
+	FLDR	0, 30, 32	
+	FSUB	0, 10, 0	
+	J	3096	
+	FLDA	11, 60	
+	FLDA	1, 76	
+	FSUB	10, 0, 1	
+	FLDA	1, 76	
+	FADD	0, 0, 1	
+	FDIV	0, 10, 0	
+	MVI	0, 100	
+	SDR	0, 30, 36	
+	FSDR	1, 30, 40	
+	FSDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINK	arctansub.813	
+	ADDI	30, 30, -48	
+	LDR	0, 30, 36	
+	FLDR	1, 30, 40	
+	FLDR	0, 30, 44	
+	FADD	0, 11, 0	
+	J	3168	
+	FLDA	11, 60	
+	FLDA	1, 76	
+	FSUB	10, 1, 0	
+	FLDA	1, 76	
+	FADD	0, 1, 0	
+	FDIV	0, 10, 0	
+	MVI	0, 100	
+	SDR	0, 30, 48	
+	FSDR	1, 30, 52	
+	FSDR	0, 30, 56	
+	ADDI	30, 30, 60	
+	JLINK	arctansub.813	
+	ADDI	30, 30, -60	
+	LDR	0, 30, 48	
+	FLDR	1, 30, 52	
+	FLDR	0, 30, 56	
+	FSUB	0, 11, 0	
+	J	3212	
+	MVI	0, 100	
+	SDR	0, 30, 60	
+	FSDR	1, 30, 64	
+	FSDR	0, 30, 68	
+	LDR	0, 30, 60	
+	FLDR	1, 30, 64	
+	FLDR	0, 30, 68	
+	ADDI	30, 30, 72	
+	JLINK	arctansub.813	
+	ADDI	30, 30, -72	
+	J	3260	
+	FNEG1	0	
+	SDR	0, 30, 72	
+	FSDR	1, 30, 76	
+	FSDR	0, 30, 80	
+	ADDI	30, 30, 84	
+	JLINK	arctan.472	
+	ADDI	30, 30, -84	
+	LDR	0, 30, 72	
+	FLDR	1, 30, 76	
+	FLDR	0, 30, 80	
+	FNEG1	0	
+	LINK	
+	XOR	1, 1, 1	
+	XOR	0, 1	
+	JZ	3468	
+	ADDI	1, 0, -1	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	FSDR	1, 30, 8	
+	FSDR	0, 30, 12	
+	MV	0, 1	
+	ADDI	30, 30, 16	
+	JLINK	arctansub.813	
+	ADDI	30, 30, -16	
+	FMV	10, 0	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	FLDR	1, 30, 8	
+	FLDR	0, 30, 12	
+	FNEG1	0	
+	MVI	1, 2	
+	MUL	1, 1, 0	
+	INC	1	
+	SDR	1, 30, 16	
+	SDR	0, 30, 20	
+	FSDR	1, 30, 24	
+	FSDR	0, 30, 28	
+	MV	0, 1	
+	ADDI	30, 30, 32	
+	JLINK	power.810	
+	ADDI	30, 30, -32	
+	FMV	1, 0	
+	LDR	1, 30, 16	
+	LDR	0, 30, 20	
+	FLDR	1, 30, 24	
+	FLDR	0, 30, 28	
+	MVI	1, 2	
+	MUL	0, 1, 0	
+	INC	0	
+	SDR	1, 30, 32	
+	SDR	0, 30, 36	
+	FSDR	1, 30, 40	
+	FSDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINK	itof.460	
+	ADDI	30, 30, -48	
+	LDR	1, 30, 32	
+	LDR	0, 30, 36	
+	FLDR	1, 30, 40	
+	FLDR	0, 30, 44	
+	FDIV	0, 1, 0	
+	FADD	0, 10, 0	
+	J	3472	
+	FLDA	0, min_caml_x.814	
+	LINK	
+	XOR	1, 1, 1	
+	XOR	0, 1	
+	JZ	3548	
+	DEC	0	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	FSDR	1, 30, 8	
+	FSDR	0, 30, 12	
+	ADDI	30, 30, 16	
+	JLINK	power.810	
+	ADDI	30, 30, -16	
+	FMV	1, 0	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	FLDR	1, 30, 8	
+	FLDR	0, 30, 12	
+	FMUL	0, 0, 1	
+	J	3552	
+	FLDA	0, 76	
+	LINK	
+	SDR	10, 30, 0	
+	MV	1, 29	
+	ADDI	29, 29, 8	
+	MVI	0, 3976	
+	SDA	0, 3976	
+	FSDR	0, 1, 4	
+	MV	0, 29	
+	ADDI	29, 29, 8	
+	MVI	10, 3648	
+	SDA	10, 3648	
+	SDR	1, 0, 4	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	FSDR	0, 30, 12	
+	MV	28, 0	
+	ADDI	30, 30, 16	
+	JLINKC	
+	ADDI	30, 30, -16	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	FLDR	0, 30, 12	
+	LDR	10, 30, 0	
+	LINK	
+	LDA	0, min_caml_g.872, 4	
+	FLDA	10, 72	
+	SDR	0, 30, 0	
+	FSDR	1, 30, 4	
+	FSDR	0, 30, 8	
+	MV	28, 0	
+	ADDI	30, 30, 12	
+	JLINKC	
+	ADDI	30, 30, -12	
+	MV	1, 0	
+	LDR	0, 30, 0	
+	FLDR	1, 30, 4	
+	FLDR	0, 30, 8	
+	FSUB	1, 1, 0	
+	FCMP	10, 1	
+	FJLT	3896	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	MV	28, 0	
+	ADDI	30, 30, 24	
+	JLINKC	
+	ADDI	30, 30, -24	
+	MV	1, 0	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FSUB	10, 1, 0	
+	FLDA	1, 68	
+	FCMP	10, 1	
+	FJLT	3852	
+	SDR	0, 30, 24	
+	FSDR	1, 30, 28	
+	FSDR	0, 30, 32	
+	MV	28, 0	
+	ADDI	30, 30, 36	
+	JLINKC	
+	ADDI	30, 30, -36	
+	LDR	0, 30, 24	
+	FLDR	1, 30, 28	
+	FLDR	0, 30, 32	
+	SDR	0, 30, 36	
+	FSDR	1, 30, 40	
+	FSDR	0, 30, 44	
+	LDR	0, 30, 36	
+	FLDR	1, 30, 40	
+	FLDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINKC	
+	ADDI	30, 30, -48	
+	J	3892	
+	SDR	0, 30, 48	
+	FSDR	1, 30, 52	
+	FSDR	0, 30, 56	
+	LDR	0, 30, 48	
+	FLDR	1, 30, 52	
+	FLDR	0, 30, 56	
+	MV	28, 0	
+	ADDI	30, 30, 60	
+	JLINKC	
+	ADDI	30, 30, -60	
+	J	3972	
+	SDR	0, 30, 60	
+	FSDR	1, 30, 64	
+	FSDR	0, 30, 68	
+	MV	28, 0	
+	ADDI	30, 30, 72	
+	JLINKC	
+	ADDI	30, 30, -72	
+	LDR	0, 30, 60	
+	FLDR	1, 30, 64	
+	FLDR	0, 30, 68	
+	SDR	0, 30, 72	
+	FSDR	1, 30, 76	
+	FSDR	0, 30, 80	
+	LDR	0, 30, 72	
+	FLDR	1, 30, 76	
+	FLDR	0, 30, 80	
+	ADDI	30, 30, 84	
+	JLINKC	
+	ADDI	30, 30, -84	
+	LINK	
+	FLDA	1, min_caml_f.870, 4	
+	FMUL	10, 0, 0	
+	FSUB	10, 10, 1	
+	FLDA	1, 84	
+	FMUL	1, 1, 0	
+	FDIV	1, 10, 1	
+	FSUB	0, 0, 1	
+	LINK	
+	SDR	10, 30, 0	
+	MV	0, 29	
+	ADDI	29, 29, 8	
+	MVI	1, 4392	
+	SDA	1, 4392	
+	FSDR	0, 0, 4	
+	MV	1, 29	
+	ADDI	29, 29, 8	
+	MVI	10, 4164	
+	SDA	10, 4164	
+	FSDR	0, 1, 4	
+	MVI	10, 1	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	FSDR	0, 30, 12	
+	MV	28, 0	
+	MV	0, 10	
+	ADDI	30, 30, 16	
+	JLINKC	
+	ADDI	30, 30, -16	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	FLDR	0, 30, 12	
+	MVI	10, 2	
+	DIV	10, 0, 10	
+	SDR	1, 30, 16	
+	SDR	0, 30, 20	
+	FSDR	0, 30, 24	
+	MV	28, 1	
+	MV	1, 0	
+	MV	0, 10	
+	ADDI	30, 30, 28	
+	JLINKC	
+	ADDI	30, 30, -28	
+	LDR	1, 30, 16	
+	LDR	0, 30, 20	
+	FLDR	0, 30, 24	
+	LDR	10, 30, 0	
+	LINK	
+	SDR	11, 30, 0	
+	SDR	10, 30, 4	
+	FLDA	0, min_caml_search.890, 4	
+	SUB	11, 1, 0	
+	MVI	10, 1	
+	XOR	11, 10	
+	JZ	4376	
+	ADD	11, 0, 1	
+	MVI	10, 2	
+	DIV	10, 11, 10	
+	SDR	1, 30, 8	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	MV	0, 10	
+	ADDI	30, 30, 24	
+	JLINK	itof.460	
+	ADDI	30, 30, -24	
+	FMV	1, 0	
+	LDR	1, 30, 8	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FCMP	1, 0	
+	FJLT	4320	
+	MVI	1, 2	
+	DIV	1, 11, 1	
+	SDR	1, 30, 24	
+	SDR	0, 30, 28	
+	FSDR	1, 30, 32	
+	FSDR	0, 30, 36	
+	LDR	1, 30, 24	
+	LDR	0, 30, 28	
+	FLDR	1, 30, 32	
+	FLDR	0, 30, 36	
+	ADDI	30, 30, 40	
+	JLINKC	
+	ADDI	30, 30, -40	
+	J	4372	
+	MVI	0, 2	
+	DIV	0, 11, 0	
+	SDR	1, 30, 40	
+	SDR	0, 30, 44	
+	FSDR	1, 30, 48	
+	FSDR	0, 30, 52	
+	LDR	1, 30, 40	
+	LDR	0, 30, 44	
+	FLDR	1, 30, 48	
+	FLDR	0, 30, 52	
+	ADDI	30, 30, 56	
+	JLINKC	
+	ADDI	30, 30, -56	
+	J	4380	
+	LDA	0, min_caml_a.891	
+	LDR	11, 30, 0	
+	LDR	10, 30, 4	
+	LINK	
+	FLDA	0, min_caml_searchsub.888, 4	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	FSDR	1, 30, 8	
+	FSDR	0, 30, 12	
+	ADDI	30, 30, 16	
+	JLINK	itof.460	
+	ADDI	30, 30, -16	
+	FMV	1, 0	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	FLDR	1, 30, 8	
+	FLDR	0, 30, 12	
+	FCMP	0, 1	
+	FJLT	4460	
+	LDA	0, min_caml_y.889	
+	J	4520	
+	MVI	1, 4	
+	MUL	1, 0, 1	
+	MVI	0, 2	
+	DIV	0, 1, 0	
+	SDR	1, 30, 16	
+	SDR	0, 30, 20	
+	FSDR	1, 30, 24	
+	FSDR	0, 30, 28	
+	LDR	1, 30, 16	
+	LDR	0, 30, 20	
+	FLDR	1, 30, 24	
+	FLDR	0, 30, 28	
+	ADDI	30, 30, 32	
+	JLINKC	
+	ADDI	30, 30, -32	
+	LINK	
+	SDR	10, 30, 0	
+	MV	0, 29	
+	ADDI	29, 29, 8	
+	MVI	1, 5032	
+	SDA	1, 5032	
+	FSDR	0, 0, 4	
+	MV	1, 29	
+	ADDI	29, 29, 8	
+	MVI	10, 4680	
+	SDA	10, 4680	
+	FSDR	0, 1, 4	
+	MVI	10, 1	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	FSDR	0, 30, 12	
+	MV	28, 0	
+	MV	0, 10	
+	ADDI	30, 30, 16	
+	JLINKC	
+	ADDI	30, 30, -16	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	FLDR	0, 30, 12	
+	MVI	10, 2	
+	DIV	10, 0, 10	
+	SDR	1, 30, 16	
+	SDR	0, 30, 20	
+	FSDR	0, 30, 24	
+	MV	28, 1	
+	MV	1, 0	
+	MV	0, 10	
+	ADDI	30, 30, 28	
+	JLINKC	
+	ADDI	30, 30, -28	
+	LDR	1, 30, 16	
+	LDR	0, 30, 20	
+	FLDR	0, 30, 24	
+	LDR	10, 30, 0	
+	LINK	
+	SDR	11, 30, 0	
+	SDR	10, 30, 4	
+	FLDA	0, min_caml_search.917, 4	
+	SUB	11, 1, 0	
+	MVI	10, 1	
+	XOR	11, 10	
+	JZ	4892	
+	ADD	11, 0, 1	
+	MVI	10, 2	
+	DIV	10, 11, 10	
+	SDR	1, 30, 8	
+	SDR	0, 30, 12	
+	FSDR	1, 30, 16	
+	FSDR	0, 30, 20	
+	MV	0, 10	
+	ADDI	30, 30, 24	
+	JLINK	itof.460	
+	ADDI	30, 30, -24	
+	FMV	1, 0	
+	LDR	1, 30, 8	
+	LDR	0, 30, 12	
+	FLDR	1, 30, 16	
+	FLDR	0, 30, 20	
+	FCMP	0, 1	
+	FJLT	4836	
+	MVI	1, 2	
+	DIV	1, 11, 1	
+	SDR	1, 30, 24	
+	SDR	0, 30, 28	
+	FSDR	1, 30, 32	
+	FSDR	0, 30, 36	
+	LDR	1, 30, 24	
+	LDR	0, 30, 28	
+	FLDR	1, 30, 32	
+	FLDR	0, 30, 36	
+	ADDI	30, 30, 40	
+	JLINKC	
+	ADDI	30, 30, -40	
+	J	4888	
+	MVI	0, 2	
+	DIV	0, 11, 0	
+	SDR	1, 30, 40	
+	SDR	0, 30, 44	
+	FSDR	1, 30, 48	
+	FSDR	0, 30, 52	
+	LDR	1, 30, 40	
+	LDR	0, 30, 44	
+	FLDR	1, 30, 48	
+	FLDR	0, 30, 52	
+	ADDI	30, 30, 56	
+	JLINKC	
+	ADDI	30, 30, -56	
+	J	5020	
+	SDR	1, 30, 56	
+	SDR	0, 30, 60	
+	FSDR	1, 30, 64	
+	FSDR	0, 30, 68	
+	MV	0, 1	
+	ADDI	30, 30, 72	
+	JLINK	itof.460	
+	ADDI	30, 30, -72	
+	FMV	1, 0	
+	LDR	1, 30, 56	
+	LDR	0, 30, 60	
+	FLDR	1, 30, 64	
+	FLDR	0, 30, 68	
+	FSUB	10, 1, 0	
+	SDR	1, 30, 72	
+	SDR	0, 30, 76	
+	FSDR	1, 30, 80	
+	FSDR	0, 30, 84	
+	ADDI	30, 30, 88	
+	JLINK	itof.460	
+	ADDI	30, 30, -88	
+	FMV	1, 0	
+	LDR	1, 30, 72	
+	LDR	0, 30, 76	
+	FLDR	1, 30, 80	
+	FLDR	0, 30, 84	
+	FSUB	0, 0, 1	
+	FCMP	10, 0	
+	FJLT	5016	
+	LDA	0, min_caml_b.919	
+	J	5020	
+	LDA	0, min_caml_a.918	
+	LDR	11, 30, 0	
+	LDR	10, 30, 4	
+	LINK	
+	FLDA	0, min_caml_searchsub.915, 4	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	FSDR	1, 30, 8	
+	FSDR	0, 30, 12	
+	ADDI	30, 30, 16	
+	JLINK	itof.460	
+	ADDI	30, 30, -16	
+	FMV	1, 0	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	FLDR	1, 30, 8	
+	FLDR	0, 30, 12	
+	FCMP	0, 1	
+	FJLT	5100	
+	LDA	0, min_caml_y.916	
+	J	5160	
+	MVI	1, 4	
+	MUL	1, 0, 1	
+	MVI	0, 2	
+	DIV	0, 1, 0	
+	SDR	1, 30, 16	
+	SDR	0, 30, 20	
+	FSDR	1, 30, 24	
+	FSDR	0, 30, 28	
+	LDR	1, 30, 16	
+	LDR	0, 30, 20	
+	FLDR	1, 30, 24	
+	FLDR	0, 30, 28	
+	ADDI	30, 30, 32	
+	JLINKC	
+	ADDI	30, 30, -32	
+	LINK	
+	XOR	1, 1, 1	
+	CMP	1, 0	
+	JZ	5304	
+	FLDA	0, 76	
+	MVI	1, 1	
+	SDR	1, 30, 0	
+	SDR	0, 30, 4	
+	FSDR	0, 30, 8	
+	ADDI	30, 30, 12	
+	JLINK	loopa.947	
+	ADDI	30, 30, -12	
+	LDR	1, 30, 0	
+	LDR	0, 30, 4	
+	FLDR	0, 30, 8	
+	MVI	1, 1	
+	SDR	1, 30, 12	
+	SDR	0, 30, 16	
+	FSDR	0, 30, 20	
+	ADDI	30, 30, 24	
+	JLINK	loopb.951	
+	ADDI	30, 30, -24	
+	MV	1, 0	
+	LDR	1, 30, 12	
+	LDR	0, 30, 16	
+	FLDR	0, 30, 20	
+	SDR	1, 30, 24	
+	SDR	0, 30, 28	
+	FSDR	0, 30, 32	
+	LDR	1, 30, 24	
+	LDR	0, 30, 28	
+	FLDR	0, 30, 32	
+	ADDI	30, 30, 36	
+	JLINK	itofsub.954	
+	ADDI	30, 30, -36	
+	J	5348	
+	NEG1	0	
+	SDR	1, 30, 36	
+	SDR	0, 30, 40	
+	FSDR	0, 30, 44	
+	ADDI	30, 30, 48	
+	JLINK	itof.460	
+	ADDI	30, 30, -48	
+	LDR	1, 30, 36	
+	LDR	0, 30, 40	
+	FLDR	0, 30, 44	
+	FNEG1	0	
+	LINK	
+	SDR	10, 30, 0	
+	CMP	1, 0	
+	JZ	5448	
+	MVI	10, 1	
+	XOR	1, 10	
+	JZ	5440	
+	FLDA	1, 84	
+	FDIV	0, 0, 1	
+	MVI	10, 2	
+	DIV	1, 1, 10	
+	SDR	1, 30, 4	
+	SDR	0, 30, 8	
+	FSDR	1, 30, 12	
+	FSDR	0, 30, 16	
+	LDR	1, 30, 4	
+	LDR	0, 30, 8	
+	FLDR	1, 30, 12	
+	FLDR	0, 30, 16	
+	ADDI	30, 30, 20	
+	JLINK	itofsub.954	
+	ADDI	30, 30, -20	
+	J	5444	
+	FLDA	0, 80	
+	J	5552	
+	MVI	10, 1	
+	XOR	1, 10	
+	JZ	5544	
+	SUB	10, 0, 1	
+	FLDA	1, 84	
+	FDIV	1, 0, 1	
+	MVI	0, 2	
+	DIV	0, 1, 0	
+	SDR	1, 30, 20	
+	SDR	0, 30, 24	
+	FSDR	1, 30, 28	
+	FSDR	0, 30, 32	
+	LDR	1, 30, 20	
+	LDR	0, 30, 24	
+	FLDR	1, 30, 28	
+	FLDR	0, 30, 32	
+	MV	1, 0	
+	MV	0, 10	
+	FMV	0, 1	
+	ADDI	30, 30, 36	
+	JLINK	itofsub.954	
+	ADDI	30, 30, -36	
+	FMV	1, 0	
+	J	5548	
+	FLDA	1, 80	
+	FADD	0, 0, 1	
+	LDR	10, 30, 0	
+	LINK	
+	SDR	11, 30, 0	
+	SDR	10, 30, 4	
+	MVI	10, 4	
+	MUL	11, 1, 10	
+	MVI	10, 2	
+	DIV	10, 11, 10	
+	CMP	10, 0	
+	JZ	5640	
+	MVI	10, 4	
+	MUL	10, 1, 10	
+	MVI	1, 2	
+	DIV	1, 10, 1	
+	SDR	1, 30, 8	
+	SDR	0, 30, 12	
+	LDR	1, 30, 8	
+	LDR	0, 30, 12	
+	ADDI	30, 30, 16	
+	JLINK	loopb.951	
+	ADDI	30, 30, -16	
+	J	5644	
+	LDA	0, min_caml_k.953	
+	LDR	11, 30, 0	
+	LDR	10, 30, 4	
+	LINK	
+	SDR	11, 30, 0	
+	SDR	10, 30, 4	
+	MVI	10, 4	
+	MUL	11, 1, 10	
+	MVI	10, 2	
+	DIV	10, 11, 10	
+	CMP	10, 0	
+	JZ	5748	
+	FADD	0, 0, 0	
+	MVI	10, 4	
+	MUL	10, 1, 10	
+	MVI	1, 2	
+	DIV	1, 10, 1	
+	SDR	1, 30, 8	
+	SDR	0, 30, 12	
+	FSDR	0, 30, 16	
+	LDR	1, 30, 8	
+	LDR	0, 30, 12	
+	FLDR	0, 30, 16	
+	ADDI	30, 30, 20	
+	JLINK	loopa.947	
+	ADDI	30, 30, -20	
+	J	5752	
+	FLDA	0, min_caml_j.949	
+	LDR	11, 30, 0	
+	LDR	10, 30, 4	
+	LINK	

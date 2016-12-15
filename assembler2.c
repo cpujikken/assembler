@@ -16,7 +16,60 @@ void print_long(long i){
 void print_line(char *s){
    printf("%s\n",s);
 }
-
+void print_hexademical(char *s){
+   int i;
+   for(i=0;i<strlen(s);i++){
+      if(s[i] == '0'){
+         printf("0000");
+      }
+      else if(s[i] == '1'){
+         printf("0001");
+      }
+      else if(s[i] == '2'){
+         printf("0010");
+      }
+      else if(s[i] == '3'){
+         printf("0011");
+      }
+      else if(s[i] == '4'){
+         printf("0100");
+      }
+      else if(s[i] == '5'){
+         printf("0101");
+      }
+      else if(s[i] == '6'){
+         printf("0110");
+      }
+      else if(s[i] == '7'){
+         printf("0111");
+      }
+      else if(s[i] == '8'){
+         printf("1000");
+      }
+      else if(s[i] == '9'){
+         printf("1001");
+      }
+      else if(s[i] == 'a'){
+         printf("1010");
+      }
+      else if(s[i] == 'b'){
+         printf("1011");
+      }
+      else if(s[i] == 'c'){
+         printf("1100");
+      }
+      else if(s[i] == 'd'){
+         printf("1101");
+      }
+      else if(s[i] == 'e'){
+         printf("1110");
+      }
+      else if(s[i] == 'f'){
+         printf("1111");
+      }
+   }
+   printf("\n");
+}
 int read_data(char *s){
    char *t;
    char *as = s;
@@ -181,6 +234,12 @@ int main(int argc,char *argv[]){
 		else if(strcmp(ss,".text") == 0){
 		    state = 1;
 		}
+		else if(strcmp(ss,".long") == 0){
+        		memory += 4;
+		}
+		else{
+			read_data(ss);
+		}
 	}
         else if(state == 1){
 		if(strcmp(s,".data") == 0){
@@ -205,6 +264,10 @@ int main(int argc,char *argv[]){
 		}
 		else if(strcmp(ss,".text") == 0){
 		    state = 1;
+		}
+		else if(strcmp(ss,".long") == 0){
+			printf("cat ");
+        		print_hexademical(sss);
 		}
 	}
         else if(state == 1){
