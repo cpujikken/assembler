@@ -266,6 +266,7 @@ int main(int argc,char *argv[]){
 		    state = 1;
 		}
 		else if(strcmp(ss,".long") == 0){
+			printf("cat ");
         		print_hexademical(sss);
 		}
 	}

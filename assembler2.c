@@ -125,6 +125,9 @@ int has_data(char *s){
 }
 int print_data(char *s){
    int i;
+   if(s[strlen(s)-1] == ','){
+      s[strlen(s)-1] = 0;
+   }
    for(i=0;i<datasize;i++){
       if(strcmp(s,name[i]) == 0){
          print_long(data[i]);
