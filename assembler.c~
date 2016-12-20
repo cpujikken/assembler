@@ -43,6 +43,9 @@ int execute(char *s) {
 
   if(opc[0] == '\0' || opc[0] == '\n') {
   }
+  else if(strcmp(opc,"cat") == 0){
+    printf("%s",opr1);
+  }
   else if(strcmp(opc,"add") * strcmp(opc,"ADD") == 0) {
     //1 : ADD Rd,Rs,Rt : Rd=Rs+Rt
     print_bin(1,6);
