@@ -207,30 +207,26 @@ int main(int argc,char *argv[]){
     int state = 0;
     FILE *rd;
     line = 0;
-    /*if(argc <= 1){
-        fprintf(stderr,"error: no input files\n");
-        return 1;
-    }
-    {
-        char ss[100];
-        strcpy(ss,argv[1]);
-        strcat(ss,".s");
-        if((rd = fopen(ss,"r")) == NULL){
-            fprintf(stderr,"error: no such file or directory: '%s'\n",ss);
-            return 1;
-        }
-    }*/
     if(argc <= 1){
         fprintf(stderr,"error: no input files\n");
         return 1;
     }
-    {
+    else if(argc == 2){
         char ss[100];
 	strcpy(ss,"cat ");
         strcat(ss,argv[1]);
         strcat(ss,".s lib.s  > r.s");
         system(ss);
         if((rd = fopen("r.s","r")) == NULL){
+            fprintf(stderr,"error: no such file or directory: '%s'\n",ss);
+            return 1;
+        }
+    }
+    else{
+        char ss[100];
+        strcpy(ss,argv[1]);
+        strcat(ss,".s");
+        if((rd = fopen(ss,"r")) == NULL){
             fprintf(stderr,"error: no such file or directory: '%s'\n",ss);
             return 1;
         }
@@ -289,7 +285,7 @@ int main(int argc,char *argv[]){
 		}
 	}
         else if(state == 1){
-		if(strcmp(s,".data") == 0){
+		if(strcmp(s,".data\n") == 0){
 			state = 0;
 		}
 		else if(has_data(s) == 0){
