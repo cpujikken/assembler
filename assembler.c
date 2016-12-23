@@ -400,6 +400,18 @@ int execute(char *s) {
     print_bin(53,6);
     print_bin(0,26);
   }
+  else if(strcmp(opc,"fin") * strcmp(opc,"FIN") == 0) {
+    //54 : FIN 
+    print_bin(54,6);
+    print_bin(0,26);
+  }
+  else if(strcmp(opc,"ceq") * strcmp(opc,"CEQ") == 0) {
+    //55 : CEQ Rd,Rs
+    print_bin(55,6);
+    read_reg(opr1);
+    read_reg(opr2);
+    print_bin(0,16);
+  }
   else{
     fprintf(stderr,"Unkown Operand %s",opc);
   }

@@ -42,6 +42,7 @@ int execute(char *s) {
   sscanf(s,"%s %[^, \t\n] , %[^, \t\n] , %[^, \t\n] , %[^, \t\n] ",opc,opr1,opr2,opr3,opr4);
 
   if(opc[0] == '\0' || opc[0] == '\n') {
+    return 0;
   }
   else if(strcmp(opc,"cat") == 0){
     printf("%s",opr1);
@@ -228,112 +229,6 @@ int execute(char *s) {
     read_reg(opr2);
     print_bin(0,16);
   }
-  else if(strcmp(opc,"lb") * strcmp(opc,"LB") == 0) {
-    //14 : LB RD, off16, RS
-    print_bin(14,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"lw") * strcmp(opc,"LW") == 0) {
-    //15 : LW RD, off16, RS
-    print_bin(15,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"lwl") * strcmp(opc,"LWL") == 0) {
-    //16 : LWL RD, off16, RS
-    print_bin(16,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"lwr") * strcmp(opc,"LWR") == 0) {
-    //17 : LWR RD, off16, RS
-    print_bin(17,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"sb") * strcmp(opc,"SB") == 0) {
-    //18 : SB RS, off16, RR
-    print_bin(18,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"sh") * strcmp(opc,"SH") == 0) {
-    //19 : SH RS, off16, RR
-    print_bin(19,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"sw") * strcmp(opc,"SW") == 0) {
-    //20 : SW RS, off16, RR
-    print_bin(20,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"swl") * strcmp(opc,"SWL") == 0) {
-    //21 : SWL RD, off16, RS
-    print_bin(21,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"swr") * strcmp(opc,"SWR") == 0) {
-    //22 : SWR RD, off16, RS
-    print_bin(22,6);
-    read_reg(opr1);
-    read_base_rel(opr2);
-  }
-  else if(strcmp(opc,"fadd") * strcmp(opc,"FADD") == 0) {
-    //23 : FADD Rd,Rs,Rt : Rd=Rs+Rt
-    print_bin(23,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    read_reg(opr3);
-    print_bin(0,11);
-  }
-  else if(strcmp(opc,"fsub") * strcmp(opc,"FSUB") == 0) {
-    //24 : FSUB Rd,Rs,Rt
-    print_bin(24,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    read_reg(opr3);
-    print_bin(0,11);
-  }
-  else if(strcmp(opc,"fmul") * strcmp(opc,"FMUL") == 0) {
-    //25 : FMUL Rd,Rs,Rt
-    print_bin(25,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    read_reg(opr3);
-    print_bin(0,11);
-  }
-  else if(strcmp(opc,"fdiv") * strcmp(opc,"FDIV") == 0) {
-    //26 : FDIV Rd,Rs,Rt
-    print_bin(26,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    read_reg(opr3);
-    print_bin(0,11);
-  }
-  else if(strcmp(opc,"fzero") * strcmp(opc,"FZERO") == 0) {
-    //27 : FZERO Ra
-    print_bin(27,6);
-    read_reg(opr1);
-    print_bin(0,21);
-  }
-  else if(strcmp(opc,"fabs") * strcmp(opc,"fabs") == 0) {
-    //28 : FABS Ra,Rb
-    print_bin(28,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    print_bin(0,16);
-  }
-  else if(strcmp(opc,"fneg") * strcmp(opc,"FNEG") == 0) {
-    //29 : FNEG Ra,Rb
-    print_bin(29,6);
-    read_reg(opr1);
-    read_reg(opr2);
-    print_bin(0,16);
-  }
   else if(strcmp(opc,"mvi") * strcmp(opc,"MVI") == 0) {
     //30 : MVI Rd,imm21
     print_bin(30,6);
@@ -499,6 +394,11 @@ int execute(char *s) {
     read_reg(opr2);
     read_reg(opr3);
     print_bin(0,11);
+  }
+  else if(strcmp(opc,"sip") * strcmp(opc,"SIP") == 0) {
+    //53 : SIP 
+    print_bin(53,6);
+    print_bin(0,26);
   }
   else{
     fprintf(stderr,"Unkown Operand %s",opc);
