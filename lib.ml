@@ -4,8 +4,8 @@ let rec itof n = if n < 0 then -.(itof (-n)) else
 	let rec loopb i k =
 		if k*4/2 > i then k else loopb i (k*4/2) in
 	let rec itofsub i j k =
-		if i >= k then j +. (if k == 1 then 0.0 else (itofsub (i-k) (j/.2.) (k/2)))
-		else (if k == 1 then 0.0 else (itofsub i (j/.2.) (k/2))) in
+		if i >= k then j +. (if k = 1 then 0.0 else (itofsub (i-k) (j/.2.) (k/2)))
+		else (if k = 1 then 0.0 else (itofsub i (j/.2.) (k/2))) in
 	itofsub n (loopa n 1. 1) (loopb n 1) in itof 2;
 let rec ftoi x = 
 	let rec searchsub y =
@@ -64,8 +64,8 @@ let rec sin t =
 let rec print_int i = 
 	let rec four x = x*4 in
 	let rec half x = x/2 in
-	let z x = () in
-	let print_int_sub n x = (
+	let rec z x = () in
+	let rec print_int_sub n x = (
 		if x > n then (print_byte 48;n) 
 		else if x + x > n then (print_byte 49;n - x)
 		else if x + x + x > n then (print_byte 50;n - x - x)
@@ -80,5 +80,32 @@ let rec print_int i =
 		if (half (four (four x))) + x + x > n then print_int_sub n x 
 		else print_int_sub (print_loop n ((half (four (four x))) + x + x)) x in z (print_loop i 1)
     in print_int 3;
-let rec print_newline () = print_byte 10 in print_newline ();
-let rec print_space () = print_byte 32 in print_space ();
+let rec print_newline _ = print_byte 10 in print_newline ();
+let rec print_space _ = print_byte 32 in print_space ();
+let rec create_int_array cnt value =
+   let rec copy_loop arr cnt value =
+       if cnt < 0 then arr
+       else
+           (
+           arr.(cnt) <- value;
+           copy_loop arr (cnt - 1) value
+           )
+   in
+   let ret = [cnt]
+   in
+       copy_loop ret cnt value
+in
+   create_int_array 10 3;let rec create_float_array cnt value =
+   let rec copy_loop arr cnt value =
+       if cnt < 0 then arr
+       else
+           (
+           arr.(cnt) <- value;
+           copy_loop arr (cnt - 1) value
+           )
+   in
+   let ret = [cnt]
+   in
+       copy_loop ret cnt value
+in
+   create_float_array 10 0.1
