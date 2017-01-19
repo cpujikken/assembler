@@ -62,7 +62,6 @@ let rec sin t =
 	if y < 0.785398163397448*.7.0 then -.(cossub (y -. 0.785398163397448*.6.0)) else
 	-.(sinsub (0.785398163397448*.8.0-.y)) in sin 1.0;
 let rec print_int i = 
-	if i < 0 then (print_byte 45;print_int (- i)) else
 	let rec four x = x*4 in
 	let rec half x = x/2 in
 	let rec z x = () in
