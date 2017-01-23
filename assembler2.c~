@@ -93,6 +93,7 @@ int read_data(char *s){
       data[datasize] = memory;
       strcpy(name[datasize],as);
       datasize++;
+      //fprintf(stderr,"%d %ld %s\n",datasize,memory,as);
       return 1;
    }
    else{
@@ -240,9 +241,11 @@ int main(int argc,char *argv[]){
 		sscanf(s,"%s %[^, \t\n] ",ss,sss);
 		if(strcmp(ss,".align") == 0){
 		    int align = atoi(sss);
+			fprintf(stderr,"align %ld %ld\n",memory,(memory+align-1)/align*align);
 		    memory = (memory+align-1)/align*align;
 		}
 		else if(strcmp(ss,".space") == 0){
+			fprintf(stderr,"space %ld %ld\n",memory,memory+atoi(sss));
 		    memory += atoi(sss);
 		}
 		else if(strcmp(ss,".text") == 0){
@@ -256,7 +259,7 @@ int main(int argc,char *argv[]){
 		}
 	}
         else if(state == 1){
-		if(strcmp(s,".data") == 0){
+		if(strcmp(s,".data\n") == 0){
 			state = 0;
 		}
 		else if(read_data(s) == 0){
@@ -285,7 +288,7 @@ int main(int argc,char *argv[]){
 		}
 	}
         else if(state == 1){
-		if(strcmp(s,".data") == 0){
+		if(strcmp(s,".data\n") == 0){
 			state = 0;
 		}
 		else if(has_data(s) == 0){
