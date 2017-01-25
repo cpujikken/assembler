@@ -241,11 +241,11 @@ int main(int argc,char *argv[]){
 		sscanf(s,"%s %[^, \t\n] ",ss,sss);
 		if(strcmp(ss,".align") == 0){
 		    int align = atoi(sss);
-			fprintf(stderr,"align %ld %ld\n",memory,(memory+align-1)/align*align);
+			//fprintf(stderr,"align %ld %ld\n",memory,(memory+align-1)/align*align);
 		    memory = (memory+align-1)/align*align;
 		}
 		else if(strcmp(ss,".space") == 0){
-			fprintf(stderr,"space %ld %ld\n",memory,memory+atoi(sss));
+			//fprintf(stderr,"space %ld %ld\n",memory,memory+atoi(sss));
 		    memory += atoi(sss);
 		}
 		else if(strcmp(ss,".text") == 0){
