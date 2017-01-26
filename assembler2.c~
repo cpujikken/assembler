@@ -93,7 +93,7 @@ int read_data(char *s){
       data[datasize] = memory;
       strcpy(name[datasize],as);
       datasize++;
-      //fprintf(stderr,"%d %ld %s\n",datasize,memory,as);
+      fprintf(stderr,"%ld %s\n",memory,as);
       return 1;
    }
    else{
@@ -241,11 +241,9 @@ int main(int argc,char *argv[]){
 		sscanf(s,"%s %[^, \t\n] ",ss,sss);
 		if(strcmp(ss,".align") == 0){
 		    int align = atoi(sss);
-			//fprintf(stderr,"align %ld %ld\n",memory,(memory+align-1)/align*align);
 		    memory = (memory+align-1)/align*align;
 		}
-		else if(strcmp(ss,".space") == 0){
-			//fprintf(stderr,"space %ld %ld\n",memory,memory+atoi(sss));
+		else if(strcmp(ss,".SPACE") == 0){
 		    memory += atoi(sss);
 		}
 		else if(strcmp(ss,".text") == 0){
@@ -269,15 +267,33 @@ int main(int argc,char *argv[]){
     }
     state = 0;
     fseek(rd,0,SEEK_SET);
+    memory = 0;
     while(fgets(s,100,rd) != NULL){
         line++;
 	if(state == 0){
 		char ss[100];
 		char sss[100];
 		sscanf(s,"%s %[^, \t\n] ",ss,sss);
-		if(strcmp(ss,".start") == 0){
+		if(strcmp(ss,".align") == 0){
+		    int i;
+		    int align = atoi(sss);
+		    int diff = (memory+align-1)/align*align - memory;
+		    for(i = 0;i < diff/4;i++){
+			printf("cat 00000000000000000000000000000000\n");
+		    }
+		    memory = (memory+align-1)/align*align;
+		}
+		else if(strcmp(ss,".SPACE") == 0){
+                    int i;
+                    for(i = 0;i < atoi(sss)/4;i++){
+			printf("cat 00000000000000000000000000000000\n");
+		    }
+		    memory += atoi(sss);
+		}
+		else if(strcmp(ss,".start") == 0){
 		    print_data(sss);
 		    printf("\n");
+                    memory += 4;
 		}
 		else if(strcmp(ss,".text") == 0){
 		    state = 1;
@@ -285,6 +301,7 @@ int main(int argc,char *argv[]){
 		else if(strcmp(ss,".long") == 0){
 			printf("cat ");
         		print_hexademical(sss);
+			memory += 4;
 		}
 	}
         else if(state == 1){
@@ -293,6 +310,7 @@ int main(int argc,char *argv[]){
 		}
 		else if(has_data(s) == 0){
            		write_line(s);
+			memory += 4;
 		}
         }
     }

@@ -93,6 +93,7 @@ int read_data(char *s){
       data[datasize] = memory;
       strcpy(name[datasize],as);
       datasize++;
+      fprintf(stderr,"%ld $%s\n",memory,as);
       return 1;
    }
    else{
