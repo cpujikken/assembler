@@ -34,7 +34,7 @@ void read_base_rel(char *s) {
 }
 int execute(char *s) {
   int status;
-  char opc[32] = "";
+  char opc[33] = "";
   char opr1[32] = "";
   char opr2[32] = "";
   char opr3[32] = "";
