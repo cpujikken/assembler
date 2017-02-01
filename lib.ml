@@ -7,7 +7,7 @@ let rec float_of_int n = if n < 0 then -.(float_of_int (-n)) else
 		if i >= k then j +. (if k = 1 then 0.0 else (float_of_intsub (i-k) (j/.2.) (k/2)))
 		else (if k = 1 then 0.0 else (float_of_intsub i (j/.2.) (k/2))) in
 	float_of_intsub n (loopa n 1. 1) (loopb n 1) in float_of_int 2;
-let rec int_of_float x = 
+let rec int_of_float x = if x < 0. then -(int_of_float (-.x)) else
 	let rec searchsub y =
 		if ((float_of_int y) < x) then (searchsub (y*4/2)) else y in
 	let rec search a b =
@@ -15,14 +15,22 @@ let rec int_of_float x =
 		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int ((a+b)/2)) < x then search ((a+b)/2) b else search a ((a+b)/2))) in
 	let z = searchsub 1 in
 	search (z/2) z in int_of_float 2.;
-let rec floor x = 
+let rec floor x = if x >= 0. then
 	let rec searchsub y =
 		if ((float_of_int y) < x) then (searchsub (y*4/2)) else y in
 	let rec search a b =
 		(if (b-a = 1) then 
 		a			else (if (float_of_int ((a+b)/2)) <= x then search ((a+b)/2) b else search a ((a+b)/2))) in
 	let z = searchsub 1 in
-	search (z/2) z in floor 2.0;
+	search (z/2) (z*4/2) 
+	else 
+	let rec searchsub y =
+		if ((float_of_int y) < (-.x)) then (searchsub (y*4/2)) else y in
+	let rec search a b =
+		(if (b-a = 1) then 
+		a			else (if (float_of_int ((a+b)/2)) < (-.x) then search ((a+b)/2) b else search a ((a+b)/2))) in
+	let z = searchsub 1 in (-1-(search (z/2) (z*4/2)))
+	in floor 2.0;
 let rec sqrt x = 
 	let rec f y = y-.((y*.y-.x)/.(2.0*.y)) in
 	let rec g z = if ((f z)-.z)>=0.0000001 then g (f z) else (if ((f z)-.z)>(-.0.0000001) then f z else g (f z)) 
