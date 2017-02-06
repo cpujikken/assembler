@@ -49,7 +49,7 @@ let rec atan t =
     if t <= ((sqrt 2.0) +. 1.0) then 0.785398163397448 +. (atansub ((t-.1.0)/.(t+.1.0)) 100) else
     1.570796326794897 -. (atansub (1.0/.t) 100) in atan 1.0;
 let rec cos t = 
-	let z = (float_of_int (floor (t /. (0.785398163397448*.8.0)))) in 
+	let z = (floor (t /. (0.785398163397448*.8.0))) in 
 	let y = t -. z *. 0.785398163397448 *. 8.0 in
 	let rec sinsub x = (x*.x*.x*.x*.x/.120.0) -. (x*.x*.x*.x*.x*.x*.x/.5040.0) -. (x*.x*.x/.6.0) +. x in
 	let rec cossub x = (x*.x*.x*.x*.x*.x/.40320.0) -. (x*.x*.x*.x*.x*.x/.720.0) +. (x*.x*.x*.x/.24.0) -. (x*.x/.2.0) +. 1.0 in
@@ -62,7 +62,7 @@ let rec cos t =
 	else if y < 0.785398163397448*.7.0 then sinsub (y-.0.785398163397448*.6.0)
 	else cossub (0.785398163397448*.8.0-.y) in cos 1.0;
 let rec sin t = 
-	let z = (float_of_int (floor (t /. (0.785398163397448 *. 8.0)))) in 
+	let z = (floor (t /. (0.785398163397448 *. 8.0))) in 
 	let y = t -. z *. 0.785398163397448 *. 8.0 in
 	let rec sinsub x = (x*.x*.x*.x*.x/.120.0) -. (x*.x*.x*.x*.x*.x*.x/.5040.0) -. (x*.x*.x/.6.0) +. x in
 	let rec cossub x = (x*.x*.x*.x*.x*.x/.40320.0) -. (x*.x*.x*.x*.x*.x/.720.0) +. (x*.x*.x*.x/.24.0) -. (x*.x/.2.0) +. 1.0 in
