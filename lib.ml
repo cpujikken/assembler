@@ -97,13 +97,16 @@ let rec print_int i =
 let rec read_int _ =
 	let rec read_int_sub i j =
 	let x = read_char () in
-	if x = 45 then read_int_sub i 1 else 
-	(if x <= 32 then (if j = 1 then -i else i) else read_int_sub (i * 10 + x - 48) j)
+	if x = 45 then read_int_sub i 1 else
+	if x = 255 then (if j = 1 then -i else i) else
+	if x <= 32 then (if j = 1 then -i else i) else
+	read_int_sub (i * 10 + x - 48) j
 	in read_int_sub 0 0 in read_int ();
 let rec read_float _ = 
 	let rec read_float_sub i j k = 
 	let x = read_char () in
 	if x = 45 then read_float_sub i j (k+1) else
+	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x = 46 then read_float_sub i j (k+2) else
 	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k
