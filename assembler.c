@@ -412,6 +412,12 @@ int execute(char *s) {
     read_reg(opr2);
     print_bin(0,16);
   }
+  else if(strcmp(opc,"RC") * strcmp(opc,"rc") == 0) {
+    //56 : RC Rc
+    print_bin(56,6);
+    read_reg(opr1);
+    print_bin(0,21);
+  }
   else{
     fprintf(stderr,"Unkown Operand %s",opc);
   }
