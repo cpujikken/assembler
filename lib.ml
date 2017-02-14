@@ -37,6 +37,7 @@ let rec floor x = if x >= 0. then
 	-.((search 0. (z*.2.) ((searchsubsub 1.0 0)+1)) +. 1.)
 	in floor 2.0;
 let rec sqrt x = 
+	if x < 1. then x*.(sqrt (1./.x)) else
 	let rec f y = y-.((y*.y-.x)/.(2.0*.y)) in
 	let rec g z = let fz = (f z) in if (if z*.z > x then z*.z -. x else x -. z*.z) <= (if fz*.fz > x then fz*.fz -. x else x -. fz*.fz) then fz else g fz 
     in (g x) in sqrt 2.0;
