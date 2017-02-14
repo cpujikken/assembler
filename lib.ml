@@ -38,7 +38,7 @@ let rec floor x = if x >= 0. then
 	in floor 2.0;
 let rec sqrt x = 
 	let rec f y = y-.((y*.y-.x)/.(2.0*.y)) in
-	let rec g z = if ((f z)-.z)>=0.0000001 then g (f z) else (if ((f z)-.z)>(-.0.0000001) then f z else g (f z)) 
+	let rec g z = let fz = (f z) in if (if z*.z > x then z*.z -. x else x -. z*.z) <= (if fz*.fz > x then fz*.fz -. x else x -. fz*.fz) then fz else g fz 
     in (g x) in sqrt 2.0;
 let rec atan t = 
     if t < 0. then -.(atan (-.t)) else
@@ -103,11 +103,12 @@ let rec read_int _ =
 	read_int_sub (i * 10 + x - 48) j
 	in read_int_sub 0 0 in read_int ();
 let rec read_float _ = 
-	let rec read_float_sub i j k = 
+	let rec read_float_sub i j k =
+	print_int (int_of_float(j));print_byte 10;
 	let x = read_char () in
 	if x = 45 then read_float_sub i j (k+1) else
 	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
-	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
+	if x <= 32 then print_int(k);(if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x = 46 then read_float_sub i j (k+2) else
 	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k
 	in read_float_sub 0 1. 0 in read_float (); 
