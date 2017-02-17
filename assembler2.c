@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+FILE *wd;
 long data[1024];
 char name[1024][100];
 long memory;
@@ -166,7 +167,10 @@ void write_line(char *s){
             n[e-b] = 0;
             if(print_data(n) == 1){
                 if(!('0' <= n[0] && n[0] <= '9') && n[0] != '-'){
-                    fprintf(stderr,"%d: error: no such label%s\n",line,n);
+		    if(wd == NULL){
+		    	wd = fopen("error.s","w");
+		    }
+                    fprintf(wd,"%d: error: no such label%s\n",line,n);
                 }
             }
             else{
@@ -313,6 +317,9 @@ int main(int argc,char *argv[]){
 			memory += 4;
 		}
         }
+    }
+    if(wd != NULL){
+        fclose(wd);
     }
     fclose(rd);
     return 0;
