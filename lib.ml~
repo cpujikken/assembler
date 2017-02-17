@@ -1,3 +1,20 @@
+let rec float_of_int n = if n < 0 then -.(float_of_int (-n)) else
+	let rec loopa i j k =
+		if k*4/2 > i then j else loopa i (j+.j) (k*4/2) in
+	let rec loopb i k =
+		if k*4/2 > i then k else loopb i (k*4/2) in
+	let rec float_of_intsub i j k =
+		if i >= k then j +. (if k = 1 then 0.0 else (float_of_intsub (i-k) (j/.2.) (k/2)))
+		else (if k = 1 then 0.0 else (float_of_intsub i (j/.2.) (k/2))) in
+	float_of_intsub n (loopa n 1. 1) (loopb n 1) in float_of_int 2;
+let rec int_of_float x = if x < 0. then -(int_of_float (-.x)) else
+	let rec searchsub y =
+		if ((float_of_int y) < x) then (searchsub (y*4/2)) else y in
+	let rec search a b =
+		(if (b-a = 1) then 
+		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int ((a+b)/2)) < x then search ((a+b)/2) b else search a ((a+b)/2))) in
+	let z = searchsub 1 in
+	search (z/2) z in int_of_float 2.;
 let rec print_int i = 
 	if i < 0 then (print_byte 45;print_int (- i)) else
 	let rec four x = x*4 in
@@ -39,23 +56,6 @@ let rec read_float _ =
 let rec print_newline _ = print_byte 10 in print_newline ();
 let rec print_space _ = print_byte 32 in print_space ();
 let rec print_char x = print_byte x in print_char 48;
-let rec float_of_int n = if n < 0 then -.(float_of_int (-n)) else
-	let rec loopa i j k =
-		if k*4/2 > i then j else loopa i (j+.j) (k*4/2) in
-	let rec loopb i k =
-		if k*4/2 > i then k else loopb i (k*4/2) in
-	let rec float_of_intsub i j k =
-		if i >= k then j +. (if k = 1 then 0.0 else (float_of_intsub (i-k) (j/.2.) (k/2)))
-		else (if k = 1 then 0.0 else (float_of_intsub i (j/.2.) (k/2))) in
-	float_of_intsub n (loopa n 1. 1) (loopb n 1) in float_of_int 2;
-let rec int_of_float x = if x < 0. then -(int_of_float (-.x)) else
-	let rec searchsub y =
-		if ((float_of_int y) < x) then (searchsub (y*4/2)) else y in
-	let rec search a b =
-		(if (b-a = 1) then 
-		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int ((a+b)/2)) < x then search ((a+b)/2) b else search a ((a+b)/2))) in
-	let z = searchsub 1 in
-	search (z/2) z in int_of_float 2.;
 let rec floor x = if x >= 0. then
 	let rec searchsub y =
 		if y < x then (searchsub (y*.2.)) else y in
