@@ -45,7 +45,6 @@ let rec read_int _ =
 	in read_int_sub 0 0 in read_int ();
 let rec read_float _ = 
 	let rec read_float_sub i j k =
-	print_int (int_of_float(j));print_byte 10;
 	let x = read_char () in
 	if x = 45 then read_float_sub i j (k+1) else
 	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
