@@ -85,10 +85,10 @@ let rec atan t =
     if t < 0. then -.(atan (-.t)) else
     let rec power x n = if n = 0 then 1.0 else x *. (power x (n-1)) in
     let rec atansub x n = if n = 0 then x else (atansub x (n-1)) +. ((power (-.x) (2*n + 1)) /. (float_of_int (2*n + 1))) in
-    if t <= ((sqrt 2.0) -. 1.0) then atansub t 100 else
-    if t <= 1.0 then 0.785398163397448 -. (atansub ((1.0-.t)/.(1.0+.t)) 100) else
-    if t <= ((sqrt 2.0) +. 1.0) then 0.785398163397448 +. (atansub ((t-.1.0)/.(t+.1.0)) 100) else
-    1.570796326794897 -. (atansub (1.0/.t) 100) in atan 1.0;
+    if t <= ((sqrt 2.0) -. 1.0) then atansub t 6 else
+    if t <= 1.0 then 0.785398163397448 -. (atansub ((1.0-.t)/.(1.0+.t)) 6) else
+    if t <= ((sqrt 2.0) +. 1.0) then 0.785398163397448 +. (atansub ((t-.1.0)/.(t+.1.0)) 6) else
+    1.570796326794897 -. (atansub (1.0/.t) 6) in atan 1.0;
 let rec cos t = 
 	let z = (floor (t /. (0.785398163397448*.8.0))) in 
 	let y = t -. z *. 0.785398163397448 *. 8.0 in

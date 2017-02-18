@@ -116,7 +116,12 @@ let rec sin t =
 	if y < 0.785398163397448*.7.0 then -.(cossub (y -. 0.785398163397448*.6.0)) else
 	-.(sinsub (0.785398163397448*.8.0-.y)) in sin 1.0;
 
-let rec fiszero x = x = 0.0 in fiszero 0.;
+let rec fiszero x =
+	let eps = 0.000001 in
+ 		if x  > -eps then
+ 			if x < eps then true else false
+		else false
+ 	in fiszero 0.;
 let rec fispos x = x > 0.0 in fispos 0.0;
 let rec fneg x = -. x in fneg 0.0;
 let rec fisneg x = x < 0.0 in fisneg 0.0;
