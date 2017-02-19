@@ -123,7 +123,6 @@ let rec fiszero x =
 		else false
  	in fiszero 0.;
 let rec fispos x = x > 0.0 in fispos 0.0;
-let rec fneg x = -. x in fneg 0.0;
 let rec fisneg x = x < 0.0 in fisneg 0.0;
 let rec fsqr x = x *. x in fsqr 0.0;
 let rec fhalf x = x /. 2.0 in fhalf 0.0;
