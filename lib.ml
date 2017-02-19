@@ -36,14 +36,22 @@ let rec print_int i =
 		else print_int_sub (print_loop n ((half (four (four x))) + x + x)) x in z (print_loop i 1)
     in print_int 3;
 let rec read_int _ =
+	let rec skip f = 
+	let x = read_char () in
+	if x <= 32 then skip f
+	else f in
 	let rec read_int_sub i j =
 	let x = read_char () in
 	if x = 45 then read_int_sub i 1 else
 	if x = 255 then (if j = 1 then -i else i) else
 	if x <= 32 then (if j = 1 then -i else i) else
 	read_int_sub (i * 10 + x - 48) j
-	in read_int_sub 0 0 in read_int ();
-let rec read_float _ = 
+	in skip (read_int_sub 0 0) in read_int ();
+let rec read_float _ =
+	let rec skip f = 
+	let x = read_char () in
+	if x <= 32 then skip f
+	else f in 
 	let rec read_float_sub i j k =
 	let x = read_char () in
 	if x = 45 then read_float_sub i j (k+1) else
@@ -51,7 +59,7 @@ let rec read_float _ =
 	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x = 46 then read_float_sub i j (k+2) else
 	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k
-	in read_float_sub 0 1. 0 in read_float (); 
+	in skip (read_float_sub 0 1. 0) in read_float (); 
 let rec print_newline _ = print_byte 10 in print_newline ();
 let rec print_space _ = print_byte 32 in print_space ();
 let rec print_char x = print_byte x in print_char 48;
