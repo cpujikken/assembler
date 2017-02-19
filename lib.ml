@@ -1,15 +1,15 @@
 let rec float_of_int n = if n < 0 then -.(float_of_int (-n)) else
 	let rec loopa i j k =
-		if k*4/2 > i then j else loopa i (j+.j) (k*4/2) in
+		if k*2 > i then j else loopa i (j+.j) (k*2) in
 	let rec loopb i k =
-		if k*4/2 > i then k else loopb i (k*4/2) in
+		if k*2 > i then k else loopb i (k*2) in
 	let rec float_of_intsub i j k =
 		if i >= k then j +. (if k = 1 then 0.0 else (float_of_intsub (i-k) (j/.2.) (k/2)))
 		else (if k = 1 then 0.0 else (float_of_intsub i (j/.2.) (k/2))) in
 	float_of_intsub n (loopa n 1. 1) (loopb n 1) in float_of_int 2;
 let rec int_of_float x = if x < 0. then -(int_of_float (-.x)) else
 	let rec searchsub y =
-		if ((float_of_int y) < x) then (searchsub (y*4/2)) else y in
+		if ((float_of_int y) < x) then (searchsub (y*2)) else y in
 	let rec search a b =
 		(if (b-a = 1) then 
 		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int ((a+b)/2)) < x then search ((a+b)/2) b else search a ((a+b)/2))) in
@@ -53,8 +53,8 @@ let rec read_float _ =
 	else f x in 
 	let rec read_float_sub i j k x =
 	if x = 45 then read_float_sub i j (k+1) (read_char ()) else
-	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
-	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
+	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else if k = 1 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
+	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else if k = 1 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x = 46 then read_float_sub i j (k+2) (read_char ()) else
 	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k (read_char ())
 	in   
