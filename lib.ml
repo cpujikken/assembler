@@ -39,27 +39,26 @@ let rec read_int _ =
 	let rec skip f = 
 	let x = read_char () in
 	if x <= 32 then skip f
-	else f in
-	let rec read_int_sub i j =
-	let x = read_char () in
-	if x = 45 then read_int_sub i 1 else
+	else f x in
+	let rec read_int_sub i j x =
+	if x = 45 then read_int_sub i 1 (read_char ()) else
 	if x = 255 then (if j = 1 then -i else i) else
 	if x <= 32 then (if j = 1 then -i else i) else
-	read_int_sub (i * 10 + x - 48) j
+	read_int_sub (i * 10 + x - 48) j (read_char ())
 	in skip (read_int_sub 0 0) in read_int ();
 let rec read_float _ =
 	let rec skip f = 
 	let x = read_char () in
 	if x <= 32 then skip f
-	else f in 
-	let rec read_float_sub i j k =
-	let x = read_char () in
-	if x = 45 then read_float_sub i j (k+1) else
+	else f x in 
+	let rec read_float_sub i j k x =
+	if x = 45 then read_float_sub i j (k+1) (read_char ()) else
 	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
-	if x = 46 then read_float_sub i j (k+2) else
-	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k
-	in skip (read_float_sub 0 1. 0) in read_float (); 
+	if x = 46 then read_float_sub i j (k+2) (read_char ()) else
+	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k (read_char ())
+	in   
+	skip (read_float_sub 0 1. 0) in read_float (); 
 let rec print_newline _ = print_byte 10 in print_newline ();
 let rec print_space _ = print_byte 32 in print_space ();
 let rec print_char x = print_byte x in print_char 48;
