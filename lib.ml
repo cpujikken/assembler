@@ -6,15 +6,15 @@ let rec float_of_int n = if n < 0 then -.(float_of_int (-n)) else
 	let rec float_of_intsub i j k =
 		if i >= k then j +. (if k = 1 then 0.0 else (float_of_intsub (i-k) (j/.2.) (k/2)))
 		else (if k = 1 then 0.0 else (float_of_intsub i (j/.2.) (k/2))) in
-	float_of_intsub n (loopa n 1. 1) (loopb n 1) in
+	float_of_intsub n (loopa n 1. 1) (loopb n 1) in float_of_int 2;
 let rec int_of_float x = if x < 0. then -(int_of_float (-.x)) else
-	let rec searchsub y =
-		if ((float_of_int y) < x) then (searchsub (y*2)) else y in
-	let rec search a b =
+	let rec searchsub y x =
+		if ((float_of_int y) < x) then (searchsub (y*2) x) else y in
+	let rec search a b x =
 		(if (b-a = 1) then 
-		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int ((a+b)/2)) < x then search ((a+b)/2) b else search a ((a+b)/2))) in
-	let z = searchsub 1 in
-	search (z/2) z in
+		(if ((float_of_int b)-.x > x-.(float_of_int a)) then a else b) 			else (if (float_of_int (a/2+b/2)) < x then search (a/2+b/2) b x else search a (a/2+b/2) x)) in
+	let z = searchsub 1 x in
+	search (z/2) z x in int_of_float 2.;
 let rec print_int i = 
 	if i < 0 then (print_byte 45;print_int (- i)) else
 	let rec four x = x*4 in
@@ -34,68 +34,66 @@ let rec print_int i =
 	let rec print_loop n x =
 		if (half (four (four x))) + x + x > n then print_int_sub n x 
 		else print_int_sub (print_loop n ((half (four (four x))) + x + x)) x in z (print_loop i 1)
-    in
+    in print_int 3;
 let rec read_int _ =
-	let rec skip f = 
+	let rec skip _ = 
 	let x = read_char () in
-	if x <= 32 then skip f
-	else f x in
+	if x <= 32 then skip ()
+	else x in
 	let rec read_int_sub i j x =
 	if x = 45 then read_int_sub i 1 (read_char ()) else
 	if x = 255 then (if j = 1 then -i else i) else
 	if x <= 32 then (if j = 1 then -i else i) else
 	read_int_sub (i * 10 + x - 48) j (read_char ())
-	in skip (read_int_sub 0 0) in
+	in read_int_sub 0 0 (skip ()) in read_int ();
 let rec read_float _ =
-	let rec skip f = 
+	let rec skip _ = 
 	let x = read_char () in
-	if x <= 32 then skip f
-	else f x in 
+	if x <= 32 then skip ()
+	else x in 
 	let rec read_float_sub i j k x =
 	if x = 45 then read_float_sub i j (k+1) (read_char ()) else
 	if x = 255 then (if k = 3 then -.((float_of_int i)/.j) else if k = 1 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x <= 32 then (if k = 3 then -.((float_of_int i)/.j) else if k = 1 then -.((float_of_int i)/.j) else ((float_of_int i)/.j)) else
 	if x = 46 then read_float_sub i j (k+2) (read_char ()) else
 	read_float_sub (i * 10 + x - 48) (if k >= 2 then j*.10. else j) k (read_char ())
-	in   
-	skip (read_float_sub 0 1. 0) in
-let rec print_newline _ = print_byte 10 in
-let rec print_space _ = print_byte 32 in
-let rec print_char x = print_byte x in
+	in read_float_sub 0 1. 0 (skip ()) in read_float (); 
+let rec print_newline _ = print_byte 10 in print_newline ();
+let rec print_space _ = print_byte 32 in print_space ();
+let rec print_char x = print_byte x in print_char 48;
 let rec floor x = if x >= 0. then
-	let rec searchsub y =
-		if y < x then (searchsub (y*.2.)) else y in
-	let rec searchsubsub y t =
-		if y < x then (searchsubsub (y*.2.) (t+1)) else t in
-	let rec search a b t =
+	let rec searchsub y x =
+		if y < x then (searchsub (y*.2.) x) else y in
+	let rec searchsubsub y t x =
+		if y < x then (searchsubsub (y*.2.) (t+1) x) else t in
+	let rec search a b t x =
 		(if t = 0 then 
-		a			else (if (a+.b)/.2. <= x then search ((a+.b)/.2.) b (t-1) else search a ((a+.b)/.2.) (t-1))) in
-	let z = searchsub 1.0 in
-	search 0. (z*.2.) ((searchsubsub 1.0 0)+1)
+		a			else (if (a+.b)/.2. <= x then search ((a+.b)/.2.) b (t-1) x else search a ((a+.b)/.2.) (t-1) x)) in
+	let z = searchsub 1.0 x in
+	search 0. (z*.2.) ((searchsubsub 1.0 0 x)+1) x
 	else 
-	let rec searchsub y =
-		if y < -.x then (searchsub (y*.2.)) else y in
-	let rec searchsubsub y t =
-		if y < -.x then (searchsubsub (y*.2.) (t+1)) else t in
-	let rec search a b t =
+	let rec searchsub y x =
+		if y < -.x then (searchsub (y*.2.) x) else y in
+	let rec searchsubsub y t x =
+		if y < -.x then (searchsubsub (y*.2.) (t+1) x) else t in
+	let rec search a b t x =
 		(if t = 0 then 
-		a			else (if (a+.b)/.2. < -.x then search ((a+.b)/.2.) b (t-1) else search a ((a+.b)/.2.) (t-1))) in
-	let z = searchsub 1.0 in
-	-.((search 0. (z*.2.) ((searchsubsub 1.0 0)+1)) +. 1.)
-	in
+		a			else (if (a+.b)/.2. < -.x then search ((a+.b)/.2.) b (t-1) x else search a ((a+.b)/.2.) (t-1) x)) in
+	let z = searchsub 1.0 x in
+	-.((search 0. (z*.2.) ((searchsubsub 1.0 0 x)+1) x) +. 1.)
+	in floor 2.0;
 let rec sqrt x = 
 	if x < 1. then x*.(sqrt (1./.x)) else
-	let rec f y = y-.((y*.y-.x)/.(2.0*.y)) in
-	let rec g z = let fz = (f z) in if (if z*.z > x then z*.z -. x else x -. z*.z) <= (if fz*.fz > x then fz*.fz -. x else x -. fz*.fz) then fz else g fz 
-    in (g x) in
+	let rec f y x = y-.((y*.y-.x)/.(2.0*.y)) in
+	let rec g z x = let fz = (f z x) in if (if z*.z > x then z*.z -. x else x -. z*.z) <= (if fz*.fz > x then fz*.fz -. x else x -. fz*.fz) then fz else g fz x 
+    in (g x x) in sqrt 2.0;
 let rec atan t = 
     if t < 0. then -.(atan (-.t)) else
-    let rec power x n = if n = 0 then 1.0 else let n2 = n/2 in let x2 = power x n2 in let xx = x2*.x2 in if n = n2 * 2 then xx else xx*.x in
-    let rec atansub x n = if n = 0 then x else (atansub x (n-1)) +. ((power (-.x) (2*n + 1)) /. (float_of_int (2*n + 1))) in
-    if t <= ((sqrt 2.0) -. 1.0) then atansub t 6 else
-    if t <= 1.0 then 0.785398163397448 -. (atansub ((1.0-.t)/.(1.0+.t)) 6) else
-    if t <= ((sqrt 2.0) +. 1.0) then 0.785398163397448 +. (atansub ((t-.1.0)/.(t+.1.0)) 6) else
-    1.570796326794897 -. (atansub (1.0/.t) 6) in
+    let rec atansub x = x -. x*.x*.x/.3.0 +. x*.x*.x*.x*.x/.5.0 -. x*.x*.x*.x*.x*.x*.x/.7.0 +. x*.x*.x*.x*.x*.x*.x*.x*.x/.9.0 -. x*.x*.x*.x*.x*.x*.x*.x*.x*.x*.x/.11.0 +. x*.x*.x*.x*.x*.x*.x*.x*.x*.x*.x*.x*.x/.13.0 in
+    if t <= ((sqrt 2.0) -. 1.0) then atansub t else
+    if t <= 1.0 then 0.785398163397448 -. (atansub ((1.0-.t)/.(1.0+.t))) else
+    if t <= ((sqrt 2.0) +. 1.0) then 0.785398163397448 +. (atansub ((t-.1.0)/.(t+.1.0))) else
+    1.570796326794897 -. (atansub (1.0/.t)) in atan 1.0;
 let rec cos t = 
 	let z = (floor (t /. (0.785398163397448*.8.0))) in 
 	let y = t -. z *. 0.785398163397448 *. 8.0 in
@@ -108,7 +106,7 @@ let rec cos t =
 	else if y < 0.785398163397448*.5.0 then -.(cossub (y-.0.785398163397448*.4.0))
 	else if y < 0.785398163397448*.6.0 then -.(sinsub (0.785398163397448*.6.0-.y))
 	else if y < 0.785398163397448*.7.0 then sinsub (y-.0.785398163397448*.6.0)
-	else cossub (0.785398163397448*.8.0-.y) in
+	else cossub (0.785398163397448*.8.0-.y) in cos 1.0;
 let rec sin t = 
 	let z = (floor (t /. (0.785398163397448 *. 8.0))) in 
 	let y = t -. z *. 0.785398163397448 *. 8.0 in
@@ -121,18 +119,19 @@ let rec sin t =
 	if y < 0.785398163397448*.5.0 then -.(sinsub (y -. 0.785398163397448*.4.0)) else
 	if y < 0.785398163397448*.6.0 then -.(cossub (0.785398163397448*.6.0-.y)) else
 	if y < 0.785398163397448*.7.0 then -.(cossub (y -. 0.785398163397448*.6.0)) else
-	-.(sinsub (0.785398163397448*.8.0-.y)) in
+	-.(sinsub (0.785398163397448*.8.0-.y)) in sin 1.0;
+
 let rec fiszero x =
 	let eps = 0.000001 in
  		if x  > -eps then
  			if x < eps then true else false
 		else false
- 	in
-let rec fispos x = x > 0.0 in
-let rec fisneg x = x < 0.0 in
-let rec fsqr x = x *. x in
-let rec fhalf x = x /. 2.0 in
-let rec fless x y = x < y in
+ 	in fiszero 0.;
+let rec fispos x = x > 0.0 in fispos 0.0;
+let rec fisneg x = x < 0.0 in fisneg 0.0;
+let rec fsqr x = x *. x in fsqr 0.0;
+let rec fhalf x = x /. 2.0 in fhalf 0.0;
+let rec fless x y = x < y in fless 0.0 0.0;
 let rec create_int_array cnt value =
    let rec copy_loop arr cnt value =
        if cnt < 0 then arr
@@ -159,3 +158,4 @@ in
    in
        copy_loop ret cnt value
 in
+   create_float_array 10 0.1
