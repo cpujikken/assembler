@@ -471,14 +471,6 @@ class OperatorAssemble{
             case "RC":
                 ExecuteOneRegister(s,56);
                 break;
-	    case "push":
-	    case "PUSH":
-		ExecuteOneRegister(s,57);
-		break;
-	    case "pop":
-	    case "POP":
-		ExecuteOneRegister(s,58);
-		break;
             default:
                 Assembler.errorMSG("Unknown Operand "+str[0]+" line "+line+"\n");
                 break;
